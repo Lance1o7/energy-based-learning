@@ -43,7 +43,9 @@ class Parameter(Variable, ABC):
         """Clamps the parameter's state in its range of permissible values (in place operation)"""
         if self._non_negative: self._state.clamp_(min=0., max=None)
 
-
+    def numel(self):
+        return self._state.numel()
+    
 class Bias(Parameter):
     """Class for biases
 
